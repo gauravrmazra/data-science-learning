@@ -1,0 +1,89 @@
+## 1. The Time Module ##
+
+import time
+
+current_time = time.time()
+print(current_time)
+
+## 2. Converting Timestamps ##
+
+import time
+
+current_time = time.time()
+current_struct_time = time.gmtime(current_time)
+
+current_hour = current_struct_time.tm_hour
+print(current_hour)
+
+## 3. UTC ##
+
+import datetime
+import time
+
+current_datetime = datetime.datetime.utcnow()
+current_year = current_datetime.year
+current_month = current_datetime.month
+
+print(current_datetime)
+
+
+## 4. Timedelta ##
+
+import datetime
+
+kirks_birthday = datetime.datetime(year=2233, month=3, day=22)
+
+diff = datetime.timedelta(weeks=15)
+
+before_kirk = kirks_birthday - diff
+
+## 5. Formatting Dates ##
+
+import datetime
+
+mystery_date_formatted_string  = mystery_date.strftime("%I:%M%p on %A %B %d, %Y")
+
+print(mystery_date_formatted_string)
+
+## 6. Parsing Dates ##
+
+import datetime
+
+print(mystery_date_formatted_string)
+
+mystery_date_2 = datetime.datetime.strptime(mystery_date_formatted_string, "%I:%M%p on %A %B %d, %Y")
+print(mystery_date_2)
+
+
+
+
+## 8. Reformatting Our Data ##
+
+import datetime
+
+for post in posts:
+    time_str = post[2]
+    post[2] = datetime.datetime.fromtimestamp(float(time_str))
+
+## 9. Counting Posts from March ##
+
+march_count = 0
+for post in posts:
+    post_time = post[2]
+    if post_time.month == 3:
+        march_count += 1
+    
+
+## 10. Counting Posts from Any Month ##
+
+march_count = 0
+
+def post_count_by_month(posts, month):
+    count = 0
+    for post in posts:
+        if post[2].month == month:
+            count += 1
+    return count
+
+feb_count = post_count_by_month(posts, 2)
+aug_count = post_count_by_month(posts, 8)
